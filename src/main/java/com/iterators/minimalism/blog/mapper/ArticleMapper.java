@@ -12,9 +12,9 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface ArticleMapper {
     
-    @Select("SELECT * FROM articles where id = #{id}")
+    @Select("SELECT * FROM `articles` where id = #{id}")
     Article getArticleById(Integer id);
 
-    @Insert("INSERT INTO articles (content, create_time, views) VALUES (#{article.content}, #{article.createTime}, #{article.views})")
+    @Insert("INSERT INTO `articles` (`content`, `create_time`, `views`) VALUES (#{article.content}, #{article.createTime}, #{article.views})")
     void insertArticle(Article article);
 }

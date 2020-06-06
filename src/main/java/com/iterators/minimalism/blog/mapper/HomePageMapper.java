@@ -13,6 +13,6 @@ import java.util.List;
 @Mapper
 public interface HomePageMapper {
 
-    @Select("SELECT * FROM blogs LIMIT #{page} OFFSET #{offset}")
+    @Select("SELECT * FROM `blogs` LIMIT #{page} OFFSET #{offset}")
     List<Blog> getAllBlogs(int page, int offset);
 }
