@@ -2,8 +2,6 @@ package com.iterators.minimalism.blog.wrapper;
 
 import com.iterators.minimalism.blog.entity.MarkdownEntity;
 import com.iterators.minimalism.blog.util.MarkdownUtils;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.util.ResourceUtils;
 
