@@ -6,29 +6,23 @@ import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.parser.ParserEmulationProfile;
 import com.vladsch.flexmark.util.ast.Node;
 import com.vladsch.flexmark.util.data.MutableDataSet;
-import org.apache.commons.io.IOUtils;
 
-import java.io.IOException;
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
- * 参考 {@link https://www.jianshu.com/p/cb21b4accdd9}
  * @author iterators
  * @time 2020.06.06
  */
 public class MarkdownUtils {
 
     public static String mdToHtml(InputStream inputStream) {
-        String htmlStr = "";
-        try {
-            String mdContent = IOUtils.toString(inputStream, StandardCharsets.UTF_8.name());
-            htmlStr = mdToHtml(mdContent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return htmlStr;
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+        String content = Arrays.toString(bufferedReader.lines().map(line -> line + "\n").toArray());
+        return mdToHtml(content);
     }
 
     public static String mdToHtml(String mdContent) {
